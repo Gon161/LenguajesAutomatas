@@ -1,57 +1,52 @@
-# POO — Guía Completa
+# Lenguaje y Autómatas — Material del curso
 
-Repositorio de estudio y referencia de Programación Orientada a Objetos, desarrollado como material de consulta personal.
-
-**Autor:** Gon161 — Ingeniería en Software, Universidad Politécnica de Tecamac
-
----
+Material de estudio del curso, organizado por unidades. Todos los ejemplos están escritos en **C#** (.NET) y pueden ejecutarse como aplicaciones de consola.
 
 ## Contenido
 
-| Archivo | Descripción |
-|---|---|
-| [`poo-completo.md`](poo-completo.md) | Guía de referencia con teoría, tablas y snippets para los temas de POO |
-| [`repaso-csharp-java.md`](repaso-csharp-java.md) | Repaso de fundamentos de programación comparando sintaxis entre C# y Java, previo a entrar de lleno a POO |
-| [`ejemplos/`](ejemplos/) | Archivos ejecutables, uno por tema, con ejemplos prácticos comentados |
-| [`ejemplos/repaso-csharp-java/`](ejemplos/repaso-csharp-java/) | 15 archivos `.java` ejecutables, uno por tema del repaso, con guía de ejecución incluida |
-
----
-
-## Temas cubiertos
-
-| # | Tema | Archivo |
+| Unidad | Tema | Archivo |
 |---|---|---|
-| _Pendiente_ | _Se completa con el temario_ | — |
+| 1 | Fundamentos de grafos | [unidad-1-fundamentos-de-grafos.md](unidad-1-fundamentos-de-grafos.md) |
+| 2 | Fundamentos de árboles | [unidad-2-fundamentos-de-arboles.md](unidad-2-fundamentos-de-arboles.md) |
+| 3 | Autómatas finitos y expresiones regulares | [unidad-3-automatas-finitos-y-expresiones-regulares.md](unidad-3-automatas-finitos-y-expresiones-regulares.md) |
+| 4 | Gramáticas formales y autómatas de pila | [unidad-4-gramaticas-formales-y-automatas-de-pila.md](unidad-4-gramaticas-formales-y-automatas-de-pila.md) |
 
----
+El temario completo con todos los subtemas está en [lenguaje-automatas-completo.md](lenguaje-automatas-completo.md).
 
-## Cómo usar
+## Estructura del repositorio
 
-### Leer la guía teórica
-
-Abre [`poo-completo.md`](poo-completo.md) o [`repaso-csharp-java.md`](repaso-csharp-java.md) en cualquier visor de Markdown (VS Code, GitHub, Obsidian…).
-
-### Ejecutar los ejemplos
-
-Los ejemplos del repaso están en Java y se pueden correr de dos formas:
-
-- **Desde un IDE (recomendado para alumnos):** abre el archivo `.java` en **IntelliJ IDEA** o **NetBeans** y ejecútalo con el botón de Run — el IDE ya trae su propio JDK, no necesitas instalar ni configurar nada extra.
-- **Desde la terminal (cmd o PowerShell, por ejemplo la de VS Code):** sigue la guía paso a paso en [`ejemplos/repaso-csharp-java/COMO-EJECUTAR.md`](ejemplos/repaso-csharp-java/COMO-EJECUTAR.md) — incluye qué hacer si `javac` no se reconoce en ninguna de las dos terminales.
-
-```bash
-javac 03_TiposPrimitivos.java
-java TiposPrimitivos
+```
+LenguajeAutomatas/
+├── README.md                                                   ← este archivo
+├── lenguaje-automatas-completo.md                              ← temario completo e índice
+├── unidad-1-fundamentos-de-grafos.md
+├── unidad-2-fundamentos-de-arboles.md
+├── unidad-3-automatas-finitos-y-expresiones-regulares.md
+├── unidad-4-gramaticas-formales-y-automatas-de-pila.md
+└── practica/                                                   ← aquí van tus prácticas
 ```
 
----
+## Cómo usar este material
 
-## Tecnologías
+1. Lee la unidad en orden: cada tema se apoya en el anterior. Un autómata es un grafo, un árbol de derivación es un árbol y una gramática es la regla que lo construye.
+2. Dibuja a mano cada ejemplo antes de programarlo; en esta materia el diagrama va primero y el código después.
+3. Copia los ejemplos en un proyecto de consola dentro de `practica/` y ejecútalos; modifícalos para ver qué cambia.
 
-- **Lenguajes:** C# y Java (comparativa) — el resto del temario de POO se definirá según avance el curso
-- **Paradigma:** Programación Orientada a Objetos
-- **IDE sugerido:** IntelliJ IDEA o NetBeans (cualquiera de los dos trae su propio JDK)
-- **Sin dependencias externas**
+### Crear un proyecto de consola para practicar
 
----
+```bash
+cd practica
+dotnet new console -n Unidad1
+cd Unidad1
+dotnet run
+```
 
-*Universidad Politécnica de Tecamac — Ingeniería en Software*
+> Requiere tener instalado el [SDK de .NET](https://dotnet.microsoft.com/download).
+
+## Convenciones
+
+- El código usa *top-level statements* (C# 9+), así que no siempre verás `class Program` ni `static void Main`.
+- Cuando un ejemplo define clases o métodos propios, esas definiciones van **después** de las instrucciones de nivel superior del mismo archivo.
+- Los comentarios `// →` indican lo que imprime la línea en consola.
+- Los bloques marcados con ⚠️ señalan errores comunes.
+- En los diagramas de texto, `(q0)` es un estado, `((q1))` es un estado de aceptación y `──a──▶` es una transición con el símbolo `a`.
